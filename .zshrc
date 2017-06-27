@@ -99,6 +99,7 @@ plugins=(git)
 alias fuckin="sudo "
 alias pls='sudo `fc -n -l -1`'
 alias cd..="cd .."
+alias sctl='systemctl'
 
 
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
@@ -107,3 +108,5 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
 fi
 
 source $ZSH/oh-my-zsh.sh
+source $HOME/.oh-my-zsh/custom/plugins/zsh-interactive-cd.plugin.zsh
+

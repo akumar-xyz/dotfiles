@@ -158,6 +158,16 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
+
+# Toggle between hide state and show state
+bindsym $mod+m bar hidden_state toggle
+
+# Toggle between dock mode and hide mode
+bindsym $mod+n bar mode toggle
+
+#Hide borders
+hide_edge_borders both
+
 #Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
