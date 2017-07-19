@@ -94,6 +94,7 @@ bindsym $mod+a focus parent
 
 set $workspace1 "1. Home"
 set $workspace2 "2. Browser"
+set $workspace10 "Tasks"
 #
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -105,7 +106,7 @@ bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+0 workspace $workspace10
 
 # Cycle through active workspaces
 bindsym $mod+Tab workspace next
@@ -121,9 +122,15 @@ bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+0 move container to workspace $workspace10
 
+#Use "xprop" to get Window Class
+#Icecat Always opens in Workspace2 "2. Browser"
 assign [class="Icecat"] $workspace2
+#Open GDG in "Tasks" workspace only
+assign [class="gtg"] $workspace10
+
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -180,8 +187,8 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 # Touchpad controls
 bindsym XF86TouchpadToggle exec /some/path/t
 
-set $bg-color 	         #121415
-set $inactive-bg-color   #2f343f
+set $bg-color 	         #101012
+set $inactive-bg-color   #323232
 set $text-color          #c5c8c6
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
@@ -213,10 +220,39 @@ bar {
 
 }
 # Wallpaper 
-exec_always /home/akumar/.papechange
+exec_always /home/akumar/.papechange &
 #remap caps lock to Esc
 exec setxkbmap -option caps:escape
 #Start redshift
 exec redshift-gtk -l 12.98:77.57 t 6000:3750 &
+#Open Network Manager Applet
 exec nm-applet &
-exec pa-applet &
+#gdg to Get Things Done!
+exec gdg &
+
+
+
+
+#i3-gaps configuration
+for_window [class="^.*"] border pixel 4
+gaps inner 5
+gaps outer 5
+
+#toggle gaps
+bindsym $Mod+G gaps inner current set 1; gaps outer current set 0
+bindsym $Mod+Shift+g gaps inner current set 5; gaps outer current set 5
+
+
+smart_gaps on
+smart_borders no_gaps
+
+
+# browser pop-ups
+for_window [window_role="pop-up"] floating enable
+
+#mpv video open as floating window 
+for_window [class="mpv"] floating enable
+
+#Power options
+bindsym $mod+p exec $HOME/.i3/shutdown_menu 
+bindsym $mod+Shift+P exec i3lock -c 101015 -f

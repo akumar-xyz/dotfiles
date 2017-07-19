@@ -28,9 +28,16 @@ command=/usr/lib/i3blocks/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
-[mpd]
-command=mpc -f "%title% -  %artist%" current 
+# [mpd]
+# command=mpc -f "%title% -  %artist%" current 
+# interval=5
+# color=#fffa06
+
+[mediaplayer]
+command=$HOME/.i3/mediaplayer
+instance=mpd
 interval=5
+signal=10
 color=#fffa06
 
 # Volume indicator
@@ -116,6 +123,7 @@ interval=30
 [time]
 command=date '+%a %d/%m %H:%M'
 interval=5
+
 
 # Generic media player support
 #

@@ -100,6 +100,7 @@ alias fuckin="sudo "
 alias pls='sudo `fc -n -l -1`'
 alias cd..="cd .."
 alias sctl='systemctl'
+alias midisynth=  "fluidsynth -a pulseaudio -i -l -m alsa_seq -r 48000 -s /home/akumar/.soundfont/Arachno.sf2"
 
 
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
