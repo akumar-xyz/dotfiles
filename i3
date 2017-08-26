@@ -127,8 +127,8 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 #Use "xprop" to get Window Class
 #Icecat Always opens in Workspace2 "2. Browser"
 assign [class="Icecat"] $workspace2
-#Open GDG in "Tasks" workspace only
-assign [class="gtg"] $workspace10
+#Open GDG in "Tasks" workspace 
+assign [class="Gtg"] $workspace10
 
 
 # reload the configuration file
@@ -228,7 +228,7 @@ exec redshift-gtk -l 12.98:77.57 t 6000:3750 &
 #Open Network Manager Applet
 exec nm-applet &
 #gdg to Get Things Done!
-exec gdg &
+exec gtg &
 
 
 

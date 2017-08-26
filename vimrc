@@ -66,8 +66,10 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 syntax on
+set hlsearch
 set relativenumber
 set number
+set ignorecase
 set smartcase
 set cursorline
 set autoindent
